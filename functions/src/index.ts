@@ -25,11 +25,11 @@ interface Contact {
   email: String;
 }
 
-interface Contact {
-  name: String;
-  description: String;
-  location: String;
-}
+// interface Dog {
+//   name: String;
+//   description: String;
+//   location: String;
+// }
 
 //============================CONTACTS
 // Add new contact
