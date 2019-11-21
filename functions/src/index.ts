@@ -15,6 +15,7 @@ main.use(bodyParser.urlencoded({ extended: false }));
 main.use("/api/v1", app);
 
 const contactsCollection = "contacts";
+const doggosCollection = "doggos";
 
 export const webApi = functions.https.onRequest(main);
 
@@ -22,6 +23,12 @@ interface Contact {
   firstName: String;
   lastName: String;
   email: String;
+}
+
+interface Contact {
+  name: String;
+  description: String;
+  location: String;
 }
 
 //============================CONTACTS
@@ -85,5 +92,11 @@ app.delete("/contacts/:contactId", async (req, res) => {
 });
 
 //============================
-
+// View all doggos
+app.get("/doggos", (req, res) => {
+  firebaseHelper.firestore
+    .backup(db, doggosCollection)
+    .then(data => res.status(200).send(data))
+    .catch(error => res.status(400).send(`Cannot get contacts: ${error}`));
+});
 export { app };
