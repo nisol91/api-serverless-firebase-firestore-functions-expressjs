@@ -91,12 +91,12 @@ app.delete("/contacts/:contactId", async (req, res) => {
   res.status(204).send(`Contact is deleted: ${deletedContact}`);
 });
 
-//============================
+//============================DOGGOS
 // View all doggos
 app.get("/doggos", (req, res) => {
   firebaseHelper.firestore
     .backup(db, doggosCollection)
     .then(data => res.status(200).send(data))
-    .catch(error => res.status(400).send(`Cannot get contacts: ${error}`));
+    .catch(error => res.status(400).send(`Cannot get doggos: ${error}`));
 });
 export { app };
