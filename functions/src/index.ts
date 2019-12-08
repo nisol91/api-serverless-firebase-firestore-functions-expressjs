@@ -9,6 +9,8 @@ const db = admin.firestore();
 
 const app = express();
 const main = express();
+const cors = require("cors");
+app.use(cors());
 
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
